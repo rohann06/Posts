@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { FaPlus } from "react-icons/fa";
-import { useWriteContract } from "wagmi";
+import { useAccount, useWriteContract } from "wagmi";
 import { abi } from "@/lib/abi";
 
 const AddPosts = () => {
   const [post, setPost] = useState("");
   const { writeContract } = useWriteContract();
+  const account = useAccount();
 
   return (
     <div className=" py-10">
@@ -21,18 +22,18 @@ const AddPosts = () => {
         />
       </div>
       <div className=" flex items-center justify-between px-1">
-        <p className=" text-sm text-zinc-600">0/500</p>
+        <p className=" text-sm text-zinc-600">{post.length}/500</p>
         <button
-          onClick={() =>
-            // console.log("Clicked", post)
-            writeContract({
-              abi,
-              address: "0x2d981D33fE07922027F600B0B588a95e8494E528",
-              functionName: "createPost",
-              args: [post],
-            })
-          }
-          className=" flex items-center gap-x-1 bg-white rounded-[10px] py-1 px-5 text-black font-bold"
+          onClick={() => {
+            account.address &&
+              writeContract({
+                abi,
+                address: "0x2d981D33fE07922027F600B0B588a95e8494E528",
+                functionName: "createPost",
+                args: [post],
+              });
+          }}
+          className={`flex items-center gap-x-1 bg-white rounded-[10px] py-1 px-5 text-black font-bold ${account.address ? "cursor-pointer" : "cursor-not-allowed opacity-40"}`}
         >
           Post <FaPlus className=" text-sm" />
         </button>
