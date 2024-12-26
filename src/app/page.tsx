@@ -2,7 +2,8 @@
 
 import { useAccount, useConnect, useDisconnect } from "wagmi";
 import Navbar from "./components/Navbar";
-import Posts from "./components/(Posts)/Posts";
+import AddPosts from "./components/AddPosts";
+import AllPosts from "./components/AllPosts";
 
 function App() {
   const account = useAccount();
@@ -14,8 +15,11 @@ function App() {
       <div className=" border-b border-neutral-500 px-5">
         <Navbar />
       </div>
+      <div className=" border-b border-neutral-500 px-5">
+        <AddPosts />
+      </div>
       <div className=" px-5">
-        <Posts />
+        <AllPosts />
       </div>
     </div>
   );
