@@ -4,7 +4,7 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 const Navbar = () => {
   return (
-    <div className=" flex items-center justify-between py-4">
+    <div className=" flex items-center justify-between py-4 border-b border-stone-400 px-10">
       <div className=" flex items-center gap-x-1 font-bold text-[30px]">
         Posts{" "}
         <span>

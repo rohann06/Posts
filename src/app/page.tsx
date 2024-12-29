@@ -11,14 +11,14 @@ function App() {
   const { disconnect } = useDisconnect();
 
   return (
-    <div className=" md:mx-[26%]">
-      <div className=" border-b border-neutral-500 px-5">
+    <div className=" md:mx-[26%] border-l-2 border-r-2 h-screen border-stone-400">
+      <div>
         <Navbar />
       </div>
-      <div className=" border-b border-neutral-500 px-5">
+      <div>
         <AddPosts />
       </div>
-      <div className=" px-5">
+      <div>
         <AllPosts />
       </div>
     </div>

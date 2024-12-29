@@ -9,7 +9,7 @@ const AddPosts = () => {
   const account = useAccount();
 
   return (
-    <div className=" py-10">
+    <div className=" py-10 border-b border-stone-400 px-10">
       <div className=" pb-2">
         <textarea
           maxLength={500}
@@ -18,7 +18,7 @@ const AddPosts = () => {
           value={post}
           onChange={(e) => setPost(e.target.value)}
           placeholder=" Write your thoughts...."
-          className=" bg-transparent w-full border border-zinc-500 rounded-[10px] outline-none p-5 font-medium"
+          className=" bg-transparent w-full border-2 border-zinc-600 rounded-[10px] outline-none p-5 font-medium"
         />
       </div>
       <div className=" flex items-center justify-between px-1">
@@ -33,7 +33,7 @@ const AddPosts = () => {
                 args: [post],
               });
           }}
-          className={`flex items-center gap-x-1 bg-white rounded-[10px] py-1 px-5 text-black font-bold ${account.address ? "cursor-pointer" : "cursor-not-allowed opacity-40"}`}
+          className={`flex items-center gap-x-1 bg-white rounded-[10px] py-1 px-5 text-black font-bold ${account.status == "disconnected" ? "cursor-not-allowed opacity-40" : "cursor-pointer"}`}
         >
           Post <FaPlus className=" text-sm" />
         </button>
