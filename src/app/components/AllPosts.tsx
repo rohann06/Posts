@@ -14,6 +14,7 @@ const AllPosts = () => {
     address: "0x2d981D33fE07922027F600B0B588a95e8494E528",
     functionName: "getAllPosts",
   });
+
   // Type assertion to inform TypeScript that `data` is a string array
   const posts = allPosts as
     | {
@@ -25,6 +26,11 @@ const AllPosts = () => {
       }[]
     | undefined;
 
+  // Sort posts from newest to oldest based on the `id`
+  const sortedPosts = posts
+    ?.slice()
+    .sort((a, b) => Number(b.id) - Number(a.id));
+
   if (isLoading)
     return (
       <div>
@@ -33,17 +39,18 @@ const AllPosts = () => {
     );
   if (isError) return <div>Error fetching posts. Please try again later.</div>;
 
-  console.log("result", posts);
+  console.log("Sorted result", sortedPosts);
+
   return (
     <div>
-      {posts?.length ? (
-        posts?.map((post, i) => (
-          <div className=" border-b border-stone-400 px-10" key={i}>
+      {sortedPosts?.length ? (
+        sortedPosts.map((post, i) => (
+          <div className="border-b border-stone-400 px-10" key={i}>
             <PostCard post={post} />
           </div>
         ))
       ) : (
-        <div>No Posts avalable</div>
+        <div>No Posts available</div>
       )}
     </div>
   );

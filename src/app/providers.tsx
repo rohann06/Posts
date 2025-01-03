@@ -8,6 +8,7 @@ import { getConfig } from "@/wagmi";
 import "@rainbow-me/rainbowkit/styles.css";
 import { getDefaultConfig, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { mainnet, polygon, optimism, arbitrum, base } from "wagmi/chains";
+import { Toaster } from "react-hot-toast";
 
 const config = getDefaultConfig({
   appName: "My RainbowKit App",
@@ -26,7 +27,10 @@ export function Providers(props: {
   return (
     <WagmiProvider config={config} initialState={props.initialState}>
       <QueryClientProvider client={queryClient}>
-        <RainbowKitProvider>{props.children}</RainbowKitProvider>
+        <RainbowKitProvider>
+          {props.children}
+          <Toaster />
+        </RainbowKitProvider>
       </QueryClientProvider>
     </WagmiProvider>
   );

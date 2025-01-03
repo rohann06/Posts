@@ -11,7 +11,7 @@ function App() {
   const { disconnect } = useDisconnect();
 
   return (
-    <div className=" md:mx-[26%] border-l-2 border-r-2 h-screen border-stone-400">
+    <div className=" md:mx-[26%] border-l-2 border-r-2 h-full border-stone-400">
       <div>
         <Navbar />
       </div>
