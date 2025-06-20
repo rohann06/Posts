@@ -32,26 +32,6 @@ const PostCard = ({ post }: { post?: any }) => {
       <div className=" pl-10 pt-5 pb-7">
         <p className=" font-bold text-[17px] text-wrap">{post?.content}</p>
       </div>
-      <div className=" pl-10 flex items-center gap-x-5">
-        <button
-          onClick={() => likeDislikeButton("likePost")}
-          className=" gap-x-1 flex items-center"
-        >
-          <TbArrowBigUpFilled className=" text-2xl hover:scale-110 duration-200 opacity-70" />
-          <p className=" text-sm text-zinc-500 font-semibold">
-            {post?.likes?.toString() || "0"}
-          </p>
-        </button>
-        <button
-          onClick={() => likeDislikeButton("dislikePost")}
-          className=" gap-x-1 flex items-center"
-        >
-          <TbArrowBigDownFilled className=" text-2xl hover:scale-110 duration-200 opacity-70" />
-          <p className=" text-sm text-zinc-500 font-semibold">
-            {post?.dislikes?.toString() || "0"}
-          </p>
-        </button>
-      </div>
     </div>
   );
 };

@@ -7,13 +7,13 @@ import { type State, WagmiProvider } from "wagmi";
 import { getConfig } from "@/wagmi";
 import "@rainbow-me/rainbowkit/styles.css";
 import { getDefaultConfig, RainbowKitProvider } from "@rainbow-me/rainbowkit";
-import { mainnet, polygon, optimism, arbitrum, base } from "wagmi/chains";
+import { sepolia } from "wagmi/chains";
 import { Toaster } from "react-hot-toast";
 
 const config = getDefaultConfig({
   appName: "My RainbowKit App",
   projectId: "YOUR_PROJECT_ID",
-  chains: [mainnet, polygon, optimism, arbitrum, base],
+  chains: [sepolia],
   ssr: true, // If your dApp uses server side rendering (SSR)
 });
 
