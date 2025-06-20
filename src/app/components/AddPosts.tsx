@@ -12,8 +12,11 @@ const AddPosts = () => {
   const account = useAccount();
 
   const handlePost = async () => {
-    if (!account.address || post.trim().length < 5) return;
-
+    if (!account?.address || post.trim().length < 5) return;
+    if (!account) {
+      toast.error("Please connect your walllet....!");
+      return;
+    }
     try {
       setLoading(true);
       // Start loading
@@ -30,12 +33,16 @@ const AddPosts = () => {
       console.error("Error creating post:", error);
       toast.error("Opps! something went wrong.....!");
     } finally {
-      setLoading(false); // End loading
+      setLoading(false);
+      toast.success("Done....!"); // End loading
     }
   };
 
   return (
-    <div className="py-10 border-b border-stone-400 px-10">
+    <form
+      onSubmit={handlePost}
+      className="py-10 border-b border-stone-400 px-10"
+    >
       <div className="pb-2">
         <textarea
           maxLength={500}
@@ -50,7 +57,7 @@ const AddPosts = () => {
       <div className="flex items-center justify-between px-1">
         <p className="text-sm text-zinc-600">{post.length}/500</p>
         <button
-          onClick={handlePost}
+          type="submit"
           className={`flex items-center gap-x-1 bg-white rounded-[10px] py-1 px-5 text-black font-bold ${
             account.status === "disconnected"
               ? "cursor-not-allowed opacity-40"
@@ -70,7 +77,7 @@ const AddPosts = () => {
           )}
         </button>
       </div>
-    </div>
+    </form>
   );
 };
 

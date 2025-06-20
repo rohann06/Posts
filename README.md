@@ -6,7 +6,6 @@
 
 - **Wallet Connection**: Easily connect your Ethereum wallet using [RainbowKit](https://www.rainbowkit.com/).
 - **Create Posts**: Share your thoughts and ideas by writing posts.
-- **Engagement**: Like or dislike posts to express your opinion.
 - **Explore Posts**: View all posts created by other users in the ecosystem.
 
 ## Technology Stack
@@ -32,3 +31,4 @@ Follow the instructions below to clone and run the project locally:
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/posts.git
+   ```
